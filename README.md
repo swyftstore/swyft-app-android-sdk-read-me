@@ -68,7 +68,7 @@ Below you will find some code examples for how you can intergate the sdk with yo
 
 ### SDK Initilization
 
-The first step when integrating the Swyft SDK with your project is to the initializion methond on the skd. We recommend doing this on your main activities onCreate method. The initializion methond takes in the application context that is used to access some local resources within the SDK. 
+The first step when integrating the Swyft SDK with your project is to call the initializion methond on the SDK. We recommend doing this on your main activity's onCreate method. The initializion method takes in the application context. This is used to access some local resources within the SDK. 
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ### Enroll User 
 
-The next is to enroll your applications user with Swyft. This is used to track the user's orders and paymentment methods. The method returns a swyftId that is used to authenticate the user later on. If the user already exist the SDK blocks the creation of a duplicate user and returns the swyftId successfully. 
+The next is to enroll your applications user with Swyft. This is used to create a profile for your user on Swyft's Platform. The method returns a swyftId that is used to authenticate the user later on. If the user already exist the SDK blocks the creation of a duplicate user and returns the swyftId successfully. 
 ```java
 final SwyftUser user = new SwyftUser();
        user.setEmailAddress(email);
@@ -109,7 +109,7 @@ SwyftSdk.getInstance().enrollUser(user, new SwyftSdk.EnrollCallback() {
 
 ### User Authentication 
 
-After you have enrolled a user you can authenticate the user. This creates a session for the user so they can interact with the Swyft Vision Cabinet by scanning a QR code returned by the sdk for your application to display. You can either supply an authentication string for the SDK to display as a QR Code or have the SDK generate a dynamic one for you.
+After you have enrolled a user you can authenticate the user. This creates a session for the user so they can interact with the Swyft Vision Cabinet by scanning a returned QR Code. You can either supply an authentication string for the SDK to display as a QR Code or have the SDK generate a dynamic one for you. 
 
 - Auto Generated QR Code
 ```java
@@ -191,13 +191,13 @@ SwyftSdk.getInstance().getPaymentsMethods(new SwyftSdk.GetPaymentsCallback() {
 If Swyft is handling the payment processing for your integration, after you authenticate the user you can add additional payment methods for the user
 ```java
 SwyftSdk.getInstance().addPaymentMethod(
-                    "4475091531509013",
-                    "VISA",
-                    "0520",
-                    "409",
-                    "John Smtih",
-                    false,//is used to set the payment method as the 'default' method. If this is the first/only method for   
-                          //the user it is ALWAYS treated as true
+        "4475091531509013",
+        "VISA",
+        "0520",
+        "409",
+        "John Smtih",
+        false,//is used to set the payment method as the 'default' method. If this is the first/only method for   
+              //the user it is ALWAYS treated as true
     new SwyftSdk.AddPaymentCallback() {
     @Override
     public void onSuccess(SwyftPaymentMethod paymentMethod) {
@@ -241,7 +241,7 @@ SwyftSdk.getInstance().editPaymentMethod(
 
 ### Set User Default Payment Method
 
-If Swyft is handling the payment processing for your integration, after you authenticate the user you can set the default payment method being used to pay for their Swyft Vission Cabinet transactions
+If Swyft is handling the payment processing for your integration, after you authenticate the user you can set the default payment method
 ```java
 //load previously stored payment method you wish to set as the default method
 final SwyftPaymentMethod paymentMethod = this.paymentMethods.get(0);
@@ -287,7 +287,7 @@ SwyftSdk.getInstance().deletePaymentMethod(
 
 ## Webhooks
 
-Ontop of the Swyft Client SDK we have a pair of webhooks that you can choose to integrate with. The webhooks can alert you eachtime one of your users begin a session with a Swyft Vision Cabinet, as well as once the session ends and its transaction details. If you wish to intgrate with the Swyft Vision Cabinet webhooks below are the payloads you can expect once you supply Swyft with your end points. 
+Swyft offers a pair of webhooks that you can choose to integrate with along with the SDK. The webhooks can alert you eachtime one of your users begin a session with a Swyft Vision Cabinet, as well as once the session ends and its transaction details. If you wish to intgrate with the Swyft Vision Cabinet webhooks below are the payloads you can expect once you supply Swyft with your end points. 
 
 <a name="webhookBegins"/>
 
@@ -320,4 +320,3 @@ payload: {
   total: String
 }
 ```
-
