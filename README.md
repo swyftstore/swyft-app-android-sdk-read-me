@@ -1,0 +1,1 @@
+# swyft-app-android-sdk-read-me-
