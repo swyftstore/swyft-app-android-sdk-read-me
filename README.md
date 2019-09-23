@@ -196,7 +196,7 @@ SwyftSdk.getInstance().addPaymentMethod(
         "0520",
         "409",
         "John Smtih",
-        false,//is used to set the payment method as the 'default' method. If this is the first/only method for   
+        false,//This is used to set the payment method as the 'default' method. If this is the first/only method for   
               //the user it is ALWAYS treated as true
     new SwyftSdk.AddPaymentCallback() {
     @Override
