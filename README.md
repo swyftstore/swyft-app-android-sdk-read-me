@@ -191,11 +191,11 @@ SwyftSdk.getInstance().getPaymentsMethods(new SwyftSdk.GetPaymentsCallback() {
 If Swyft is handling the payment processing for your integration, after you authenticate the user you can add additional payment methods for the user
 ```java
 SwyftSdk.getInstance().addPaymentMethod(
-        "4475091531509013",
-        "VISA",
-        "0520",
-        "409",
-        "John Smtih",
+        cardNumber,
+        cardType,
+        cardExpiry,
+        cvv,
+        cardHolderName,
         false,//This is used to set the payment method as the 'default' method. If this is the first/only method for   
               //the user it is ALWAYS treated as true
     new SwyftSdk.AddPaymentCallback() {
@@ -219,12 +219,15 @@ If Swyft is handling the payment processing for your integration, after you auth
 //load previously stored payment method you wish to update
 final SwyftPaymentMethod paymentMethod = this.paymentMethods.get(0); 
 SwyftSdk.getInstance().editPaymentMethod(
-        "4475091531509013",
-        "0127",
-        "VISA",
-        "Johnathan Smith",
-        "409",
-        paymentMethod.getToken(),//the payment method's token is a unique identifier 
+        cardNumber,
+        expiryDate,
+        cardType,
+        cardHolderName,
+        cvv",
+        paymentMethod.getToken(),//the payment method's token is a unique identifier         
+        true, //note: you can set a payment method to be default method via edit interface,
+              //but can't disable a default payment this way please use setDefaultPaymentMethod 
+              //interface if you wish to set another payment method as default
     new SwyftSdk.EditPaymentCallback() {
         @Override
         public void onSuccess(SwyftPaymentMethod paymentMethod) {
