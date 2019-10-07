@@ -52,7 +52,7 @@ To include the Swyft SDK in your project, add the following to your app level bu
 ```javascript
 dependencies {
    ...
-   implementation  'com.swyft.sdk:1.0.0'
+   implementation  'com.swyftstore.sdk:1.0.0'
 }
 ```
 
