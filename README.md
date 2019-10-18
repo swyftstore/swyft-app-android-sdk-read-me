@@ -47,7 +47,7 @@ Sample JSON file swyft-sdk.json
 
 ### Installation
 
-For the first release please down load the [linked](https://github.com/swyftstore/swyft-app-android-sdk-read-me/blob/master/swyftSdk.aar) .aar file and add it to your project under /src/main/libs director.
+For the first release please download the [linked](https://github.com/swyftstore/swyft-app-android-sdk-read-me/blob/master/swyftSdk.aar) .aar file and add it to your project under /src/main/libs director.
 You then need to add the following flatDir and dependencies to you build.grade file.
 
 ```javascript
