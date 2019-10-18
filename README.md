@@ -47,16 +47,35 @@ Sample JSON file swyft-sdk.json
 
 ### Installation
 
-To include the Swyft SDK in your project, add the following to your app level build.gradle.
+For the first release please down load the [linked](https://github.com/swyftstore/swyft-app-android-sdk-read-me/blob/master/swyftSdk.aar) .aar file and add it to your project under /src/main/libs director.
+You then need to add the following flatDir and dependencies to you build.grade file.
 
 ```javascript
+repositories {
+    mavenCentral()
+    ...
+    flatDir {
+        dirs "src/main/libs"
+    }
+}
 dependencies {
    ...
-   implementation  'com.swyftstore.sdk:1.0.0'
+   implementation(name:"swyftSdk", ext:"aar")
+   implementation 'com.google.firebase:firebase-core:17.0.1'
+   implementation 'com.google.firebase:firebase-firestore:20.1.0'
+   implementation 'com.google.firebase:firebase-auth:18.1.0'
+   implementation 'com.amitshekhar.android:android-networking:1.0.2'
+   implementation 'com.google.android.gms:play-services-maps:17.0.0'
+   implementation 'com.google.zxing:core:3.3.3'
+   implementation('org.simpleframework:simple-xml:2.7.1') {
+       exclude module: 'stax'
+       exclude module: 'stax-api'
+       exclude module: 'xpp3'
+   }
 }
 ```
 
-Note: we haven't decided if we want to publish our sdk to maven or distribute through more closed channels 
+Note: Future releases will distributed via maven and will not require to above steps
 
 <a name="usage"/>
 
