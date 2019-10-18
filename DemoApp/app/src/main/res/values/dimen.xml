@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dimen_1">1dp</dimen>
+    <dimen name="dimen_2">2dp</dimen>
+    <dimen name="dimen_3">3dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimen_6">6dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_2_5">10dp</dimen>
+    <dimen name="dimen_2_6">12dp</dimen>
+    <dimen name="dimen_3_5">15dp</dimen>
+    <dimen name="dimen_2_8">16dp</dimen>
+    <dimen name="dimen_2_9">18dp</dimen>
+    <dimen name="dimen_4_5">20dp</dimen>
+    <dimen name="dimen_5_5">25dp</dimen>
+    <dimen name="dimen_5_6">30dp</dimen>
+    <dimen name="dimen_5_7">35dp</dimen>
+    <dimen name="dimen_5_8">40dp</dimen>
+    <dimen name="dimen_6_8">48dp</dimen>
+    <dimen name="dimen_5_10">50dp</dimen>
+    <dimen name="dimen_7_8">56dp</dimen>
+    <dimen name="dimen_10_6">60dp</dimen>
+    <dimen name="dimen_10_7">70dp</dimen>
+    <dimen name="dimen_10_8">80dp</dimen>
+    <dimen name="dimen_10_9">90dp</dimen>
+    <dimen name="dimen_10_10">100dp</dimen>
+    <dimen name="dimen_12_10">120dp</dimen>
+    <dimen name="dimen_13_10">130dp</dimen>
+    <dimen name="dimen_15_10">150dp</dimen>
+    <dimen name="dimen_18_10">180dp</dimen>
+    <dimen name="dimen_10_20">200dp</dimen>
+
+    <dimen name="dimen_10_22">220dp</dimen>
+    <dimen name="dimen_10_24">240dp</dimen>
+    <dimen name="dimen_10_28">280dp</dimen>
+    <dimen name="dimen_10_30">300dp</dimen>
+    <dimen name="dimen_15_30">450dp</dimen>
+
+    <dimen name="text_8">8sp</dimen>
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_28">28sp</dimen>
+    <dimen name="text_32">32sp</dimen>
+    <dimen name="text_40">40sp</dimen>
+    <dimen name="text_50">50sp</dimen>
+</resources>
