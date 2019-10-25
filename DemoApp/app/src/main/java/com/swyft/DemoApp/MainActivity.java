@@ -4,6 +4,7 @@ import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,10 +37,16 @@ public class MainActivity extends AppCompatActivity {
     private int limit = 20;
     private List<SwyftPaymentMethod> paymentMethods;
 
+    private final String firstName = "Fake";
+    private final String lastName = "Man";
+    private final String email = "fake.man@swyft.com";
+    private final String phoneNumber = "+14152346543";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         SwyftSdk.initSDK(getApplicationContext());
         final int colorInt = getApplication().getColor(R.color.colorPrimary);
         SwyftSdk.getInstance().setQrCodeColor(colorInt);
@@ -73,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R2.id.enrollUser)
     public void enrollCustomer() {
         containerProgress.setVisibility(View.VISIBLE);
-        customer = initCustomerObject("fake.man@swyft.com", "Fake",
-                "Man", "+14152346543");
+        customer = initCustomerObject(email, firstName,
+                lastName, phoneNumber);
 
         SwyftSdk.getInstance().enrollUser(customer, new SwyftSdk.EnrollCallBack() {
             @Override
@@ -119,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R2.id.authUserCustomToken)
     public void authCustomCustomer() {
         containerProgress.setVisibility(View.VISIBLE);
-        customToken = "fake.man@swyft.com";
+        customToken = email;
         SwyftSdk.getInstance().authenticateUser(swyftId, customToken, new SwyftSdk.AuthUserCallBack() {
             @Override
             public void onSuccess(Bitmap qrCode) {
@@ -335,6 +342,18 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @OnClick(R2.id.updateUser)
+    protected void onUpdateClick() {
+
+        final Intent intent = new Intent(this, UpdateProfileActivity.class);
+        intent.putExtra(UpdateProfileActivity.FIRST_NAME, firstName);
+        intent.putExtra(UpdateProfileActivity.LAST_NAME, lastName);
+        intent.putExtra(UpdateProfileActivity.EMAIL, email);
+        intent.putExtra(UpdateProfileActivity.PHONE_NUMBER, phoneNumber);
+        startActivity(intent);
+
     }
 
     private SwyftPaymentMethod findBasesOnLast4(List<SwyftPaymentMethod> methods, String last4) {

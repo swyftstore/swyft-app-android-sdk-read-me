@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4_5"
+            android:text="Swyft SDK Demo: Update Users"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10_10"
+            android:layout_marginStart="@dimen/dimen_2_5"
+            android:layout_marginEnd="@dimen/dimen_2_5"
+            android:textAlignment="textStart"
+            android:hint="First Name"
+            />
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4_5"
+            android:layout_marginStart="@dimen/dimen_2_5"
+            android:layout_marginEnd="@dimen/dimen_2_5"
+            android:textAlignment="textStart"
+            android:hint="Last Name"
+            />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4_5"
+            android:layout_marginStart="@dimen/dimen_2_5"
+            android:layout_marginEnd="@dimen/dimen_2_5"
+            android:textAlignment="textStart"
+            android:hint="Email"
+            />
+
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4_5"
+            android:layout_marginStart="@dimen/dimen_2_5"
+            android:layout_marginEnd="@dimen/dimen_2_5"
+            android:textAlignment="textStart"
+            android:hint="Phone Number"
+            />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="@dimen/dimen_5_10"
+            android:layout_marginStart="@dimen/dimen_2_5"
+            android:layout_marginEnd="@dimen/dimen_2_5" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/progressBarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@color/black_semi_overlay"
+        android:clickable="true"
+        android:elevation="@dimen/dimen_2_5"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminateTintMode="src_atop" />
+
+    </RelativeLayout>
+</FrameLayout>

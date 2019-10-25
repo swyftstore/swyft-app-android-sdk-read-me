@@ -28,6 +28,12 @@
                 android:text="Enroll User" />
 
             <Button
+                android:id="@+id/updateUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update User" />
+
+            <Button
                 android:id="@+id/authUserIdToken"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

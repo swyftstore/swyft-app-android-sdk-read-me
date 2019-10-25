@@ -4,7 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-
+        maven { url 'https://jitpack.io' }
     }
     def butterKnifeVersion = "10.1.0"
     dependencies {
@@ -17,23 +17,11 @@ buildscript {
     }
 }
 
-buildscript {
-
-    repositories {
-        google()
-    }
-
-    dependencies {
-        classpath 'com.google.gms:google-services:4.0.1'  // Google Services plugin
-    }
-}
-
 allprojects {
     repositories {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        //maven { url "http://pay.cards/maven" }
     }
 }
 
