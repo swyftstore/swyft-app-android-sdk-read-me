@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 containerProgress.setVisibility(View.INVISIBLE);
                 Toast.makeText(getApplicationContext(), "Payments Succesfully fetched!", Toast.LENGTH_LONG).show();
                 Log.d("Payments: ", String.valueOf(paymentMethods.size()));
+
                 for (int i = 0; i < paymentMethods.size(); i++) {
                     Log.d("Payments Token: ", paymentMethods.get(i).getToken());
                     Log.d("Payments Card Expiry: ", paymentMethods.get(i).getCardExpiry());
@@ -256,8 +257,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         SwyftSdk.getInstance().editPaymentMethod(
-                "4475091531504321",
-                "0130",
+                "4475091531509013",
+                "0830",
                 "VISA",
                 "SERGIO LOPEZ",
                 "329",
@@ -289,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R2.id.setDefaultPayment)
     public void setDefaultPaymentMethodUser() {
         containerProgress.setVisibility(View.VISIBLE);
-        final SwyftPaymentMethod paymentMethod = findBasesOnLast4(this.paymentMethods, "1111");
+        final SwyftPaymentMethod paymentMethod = findBasesOnLast4(this.paymentMethods, "9013");
         if (paymentMethod == null) {
             Toast.makeText(getApplicationContext(), "Set Payment Default onFailure: payments not loaded, loading now try again", Toast.LENGTH_LONG).show();
             getPayments();
@@ -319,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R2.id.deletePayment)
     public void deletePaymentMethodUser() {
         containerProgress.setVisibility(View.VISIBLE);
-        final SwyftPaymentMethod paymentMethod = findBasesOnLast4(this.paymentMethods, "1111");
+        final SwyftPaymentMethod paymentMethod = findBasesOnLast4(this.paymentMethods, "9013");
         if (paymentMethod == null) {
             Toast.makeText(getApplicationContext(), "Delete Payment onFailure: payments not loaded, loading now try again", Toast.LENGTH_LONG).show();
             getPayments();
