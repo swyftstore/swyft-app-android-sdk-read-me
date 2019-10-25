@@ -11,6 +11,7 @@ This project is to be used by a 3rd party android application, inorder to integr
   - [SDK Initilization](#init)
   - [User Enrollment](#enroll)
   - [User Authentication](#auth)
+  - [User Update](#userUpdate)
   - [Get User Orders](#orders)
   - [Get User Payment Methods](#pMethods)
   - [Add User Payment Method](#addPMethod)
@@ -47,31 +48,15 @@ Sample JSON file swyft-sdk.json
 
 ### Installation
 
-For the first release please download the [linked](https://github.com/swyftstore/swyft-app-android-sdk-read-me/blob/master/swyftSdk.aar) .aar file and add it to your project under /src/main/libs director.
-You then need to add the following flatDir and dependencies to you build.grade file.
+Please add the following to your app's build.gradle
 
 ```javascript
 repositories {
     mavenCentral()
-    ...
-    flatDir {
-        dirs "src/main/libs"
-    }
 }
 dependencies {
    ...
-   implementation(name:"swyftSdk", ext:"aar")
-   implementation 'com.google.firebase:firebase-core:17.0.1'
-   implementation 'com.google.firebase:firebase-firestore:20.1.0'
-   implementation 'com.google.firebase:firebase-auth:18.1.0'
-   implementation 'com.amitshekhar.android:android-networking:1.0.2'
-   implementation 'com.google.android.gms:play-services-maps:17.0.0'
-   implementation 'com.google.zxing:core:3.3.3'
-   implementation('org.simpleframework:simple-xml:2.7.1') {
-       exclude module: 'stax'
-       exclude module: 'stax-api'
-       exclude module: 'xpp3'
-   }
+   implementation "com.swyftstore:swyft-sdk:alpha-1.0.1.3"
 }
 ```
 
@@ -165,6 +150,28 @@ You can set the foreground color of the displayed QR Code by setting the QR Code
  final int colorInt = getApplication().getColor(R.color.colorPrimary);
  SwyftSdk.getInstance().setQrCodeColor(colorInt);
 ```
+<a name="userUpdate"/>
+
+### Update User 
+
+After enrolling or authenticating a user you can update their profile. You will get an error if the new email is already in use.
+```java
+final SwyftUser user = new SwyftUser(firstName, lastName, email, phoneNumber);
+SwyftSdk.getInstance().updateUser(user, new SwyftSdk.UpdateUserCallBack() {
+    @Override
+    public void onSuccess(String msg) {
+        Toast.makeText(getApplicationContext(), "User Profile Updated!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFailure(String msg) {
+        Toast.makeText(getApplicationContext(), "User Profile Update failed: " + msg, Toast.LENGTH_LONG).show();
+        Log.e("Demo App", "onFailure " + msg);
+    }
+});
+    
+```  
+
 <a name="orders"/>
 
 ### Get User Orders
